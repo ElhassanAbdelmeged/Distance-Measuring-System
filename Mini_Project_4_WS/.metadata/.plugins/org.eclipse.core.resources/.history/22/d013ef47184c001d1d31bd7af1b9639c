@@ -1,0 +1,14 @@
+/* Mini_Project4.c
+ *  Created on: October 14, 2022
+ *  Author: Hassan_Abdelmeged_Mohamed
+ */
+#include<avr/io.h>
+#include"icu.h"
+#include"ultrasonic.h"
+#include"gpio.h"
+#include"lcd.h"
+int main (void){
+	LCD_init();
+
+	while(1)
+}

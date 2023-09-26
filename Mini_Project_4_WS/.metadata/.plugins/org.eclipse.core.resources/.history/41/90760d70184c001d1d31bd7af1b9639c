@@ -1,0 +1,33 @@
+/* Mini_Project4.c
+ *  Created on: October 14, 2022
+ *  Author: Hassan_Abdelmeged_Mohamed
+ */
+#include<avr/io.h>
+#include"icu.h"
+#include"ultrasonic.h"
+#include"gpio.h"
+#include"lcd.h"
+int main (void){
+	LCD_init();
+	Ultrasonic_init();
+	sei(); /* enable i_bit*/
+	while(1)
+	{
+		if(2==g_edgeCount){
+
+			LCD_displayStringRowColumn(0,0,"Distance = ");
+				if (Ultrasonic_readDistance()>=100){
+
+				LCD_intgerToString(Ultrasonic_readDistance());
+				LCD_displayStringRowColumn(0,14,"CM");
+				}
+				else{
+
+					LCD_intgerToString(Ultrasonic_readDistance());
+					LCD_displayCharacter(' '); //to overWrite on the units of 100,101,102 when reach the tens
+					LCD_displayStringRowColumn(1,14,"CM");
+
+		}
+
+
+}
